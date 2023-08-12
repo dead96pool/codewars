@@ -10,6 +10,10 @@ def validate_battlefield(field):
                 4 x 1 cell ship
     
     """
+
+
+
+
     
     return True
 
