@@ -1,4 +1,4 @@
-
+import numpy as np
 
 def validate_battlefield(field):
     # write your magic here
@@ -10,10 +10,18 @@ def validate_battlefield(field):
                 4 x 1 cell ship
     
     """
+    cell_4 = 1
+    cell_3 = 2
+    cell_2 = 3
+    cell_1 = 4
 
+    print(np.array(field))
 
+    # verify ship count
 
+    # verify ship shape
 
+    # verify ship position
     
     return True
 
@@ -35,3 +43,15 @@ if __name__ == "__main__":
                     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
     
     assert_equals(validate_battlefield(battleField), True)
+
+"""
+    battlefield = [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
+                   [0, 0, 0, 0, 1, 1, 1, 0, 0, 1], 
+                   [0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+                   [1, 0, 0, 1, 0, 0, 0, 1, 0, 1], 
+                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+                   [0, 0, 0, 0, 0, 0, 1, 0, 0, 0], 
+                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+                   [1, 1, 0, 0, 0, 0, 1, 1, 0, 0], 
+                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+                   [1, 1, 1, 0, 0, 0, 0, 0, 0, 0]]"""
