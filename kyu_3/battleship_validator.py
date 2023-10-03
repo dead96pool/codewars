@@ -8,6 +8,7 @@ def validate_battlefield(field):
              3: 0,      # 2
              4: 0}      # 1
              
+    
     occupied = set()
     
     def touching(row, col):
@@ -35,9 +36,11 @@ def validate_battlefield(field):
 
     # check if not already counted
     def valid_cell(row, col):
+        #return (row, col) not in occupied
         return not touching(row,col) and (row, col) not in occupied
     
     
+    print(ships)
     
     for row in range(10):
         for col in range(10):
@@ -49,6 +52,8 @@ def validate_battlefield(field):
                         occupied.add((row,col+size))
                         size += 1
                     if size > 4:
+                        #ships[size-1] += 1
+                        #continue
                         return False
                     ships[size] += 1
                 # vertical ships
@@ -58,6 +63,8 @@ def validate_battlefield(field):
                         occupied.add((row+size,col))
                         size += 1
                     if size > 4:
+                        #ships[size-1] += 1
+                        #continue
                         return False
                     ships[size] += 1
                 # submerines
@@ -67,15 +74,15 @@ def validate_battlefield(field):
                     occupied.add((row,col))
                     ships[size] += 1
 
-    print(ships)
     
+    print(ships)
     return ships == {4:1, 3:2, 2:3, 1:4}
 
 def assert_equals(output, expected):
     print(output == expected)
 
 if __name__ == "__main__":
-    battleField = [ [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    """battleField = [ [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
                     [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
                     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -87,7 +94,18 @@ if __name__ == "__main__":
                     [1, 1, 1, 0, 1, 1, 1, 0, 0, 0]]   
     
     assert_equals(validate_battlefield(battleField), True)
-
+"""
+    battlefield = [ [1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+		            [1, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+		            [1, 1, 0, 0, 1, 1, 1, 0, 1, 0],
+		            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		            [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+		            [1, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+		            [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+		            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+		            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    print(validate_battlefield(battlefield))
 """
     battlefield = [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0], 
                    [0, 0, 0, 0, 1, 1, 1, 0, 0, 1], 
